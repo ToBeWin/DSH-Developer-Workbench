@@ -30,6 +30,17 @@ app.whenReady().then(async () => {
     const markup = await window.webContents.executeJavaScript('document.body.innerText');
     throw new Error(`Workbench did not render: ${JSON.stringify(initial)}\\n${markup.slice(-2400)}`);
   }
+  if (!await clickText(window, ['README.md'])) throw new Error('A workspace file could not be selected');
+  await delay(180);
+  const code = await window.webContents.executeJavaScript(`document.querySelector('.tw-workbench-code')?.textContent || ''`);
+  if (!code.trim()) throw new Error('Selected file did not load into the code viewer');
+  if (!await clickText(window, ['Preview', '预览'])) throw new Error('Preview tab was not found');
+  await window.webContents.executeJavaScript(`(() => { const field = document.querySelector('.tw-workbench-preview-controls input'); const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; setter.call(field, 'http://127.0.0.1:3098'); field.dispatchEvent(new Event('input', { bubbles: true })); })()`);
+  if (!await clickText(window, ['Load', '加载'])) throw new Error('Preview load action was not found');
+  await delay(100);
+  const preview = await window.webContents.executeJavaScript(`document.querySelector('.tw-workbench-frame')?.src || ''`);
+  if (!preview.includes('127.0.0.1:3098')) throw new Error(`Preview did not receive the requested URL: ${preview}`);
+  if (!await clickText(window, ['Code', '代码'])) throw new Error('Code tab was not found');
   if (!await clickText(window, ['Enable local terminal', '启用本机命令'])) throw new Error('Terminal enable action was not found');
   await delay(120);
   await window.webContents.executeJavaScript(`(() => { const field = document.querySelector('.tw-workbench-command'); const setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set; setter.call(field, 'printf dsh-workbench-ok'); field.dispatchEvent(new Event('input', { bubbles: true })); field.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); })()`);
