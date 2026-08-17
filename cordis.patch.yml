@@ -1,0 +1,4 @@
+- insert:
+    - id: tobewin-dsh-developer-workbench
+      name: '@tobewin/dsh-developer-workbench'
+      inject: [webServer, workspaceRegistry]
