@@ -1,8 +1,25 @@
-# DSH Developer Workbench / DSH 开发工作台
+<h1 align="center">DSH Developer Workbench · DSH 开发工作台</h1>
+
+<p align="center">Files, live preview, and a real interactive terminal—without leaving the conversation.</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@tobewin/dsh-developer-workbench"><img src="https://img.shields.io/npm/v/@tobewin/dsh-developer-workbench?color=2563eb&label=npm" alt="npm version"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-111827" alt="MIT license"></a>
+  <img src="https://img.shields.io/badge/terminal-interactive%20PTY-0f766e" alt="Interactive PTY terminal">
+  <img src="https://img.shields.io/badge/source-independent-7c3aed" alt="Independent plugin">
+</p>
+
+<p align="center"><a href="#quick-start--快速开始">Quick start</a> · <a href="#what-it-adds--功能">功能</a> · <a href="https://github.com/ToBeWin/DSH-Plugin-Market">All ToBeWin plugins</a></p>
 
 An independent developer-workbench plugin for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness): inspect the active project's files, preview a local web app or website, and use an interactive project terminal without leaving the conversation.
 
 为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 提供独立的开发工作台：在对话中查看已打开项目的文件和代码、预览本地 Web 应用或网页，并直接使用项目交互式终端。
+
+## See it in Harness / 实际效果
+
+<p align="center">
+  <img src="docs/images/developer-workbench.png" alt="DSH Developer Workbench with a live web preview in the right-hand column" width="94%">
+</p>
 
 ## What it adds / 功能
 
@@ -18,10 +35,10 @@ An independent developer-workbench plugin for [DeepSeek Harness](https://github.
 - **接近 Codex 的扩展式开发流** —— 工作区会话右上角的紧凑工具组会把预览展开为真正的右侧栏，把终端展开为真正的底部区域；主会话随之重排而不会被遮挡。较轻量的文件树与代码查看器按设计保留悬浮形态。
 - **中英文适配** —— 菜单与交互文案跟随 DeepSeek Harness 当前语言。
 
-## Install / 安装
+## Quick start / 快速开始
 
 ```bash
-npm install @tobewin/dsh-developer-workbench
+dsh plugin --profile web add @tobewin/dsh-developer-workbench
 ```
 
 Install it through DeepSeek Harness Plugin Market and restart Harness if requested. Open a conversation attached to a workspace: its upper-right utilities contain the compact **Developer Workbench / 开发工作台** controls. They are intentionally absent from temporary and other no-workspace conversations.
