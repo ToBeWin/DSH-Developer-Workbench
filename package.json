@@ -1,7 +1,7 @@
 {
   "name": "@tobewin/dsh-developer-workbench",
   "version": "0.1.0",
-  "description": "A local developer workbench with explorer, preview, and command console for DeepSeek Harness",
+  "description": "A local developer workbench with explorer, embedded preview, and an interactive PTY terminal for DeepSeek Harness",
   "license": "MIT",
   "author": "ToBeWin",
   "repository": { "type": "git", "url": "git+https://github.com/ToBeWin/DSH-Developer-Workbench.git" },
@@ -25,6 +25,8 @@
       "inject": [
         "@deepseek-ai/dsh-client-runtime",
         "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-conversation",
         "@deepseek-ai/dsh-client-ui-sidebar",
         "@deepseek-ai/dsh-client-ui-settings",
         "@deepseek-ai/dsh-client-ui-primitives"
